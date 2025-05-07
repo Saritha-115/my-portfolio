@@ -1,5 +1,6 @@
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import Card from "../../components/ui/Card"; // Assuming you have a Card component
 
 export default function Projects() {
   const projects = [
@@ -31,19 +32,12 @@ export default function Projects() {
           <h1 className="text-4xl font-bold mb-8 text-center">My Projects</h1>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <div
+              <Card
                 key={index}
-                className="p-6 bg-white shadow-md rounded-lg hover:shadow-lg transition"
-              >
-                <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <a
-                  href={project.link}
-                  className="text-blue-600 hover:underline"
-                >
-                  View Details
-                </a>
-              </div>
+                title={project.title}
+                description={project.description}
+                link={project.link}
+              />
             ))}
           </div>
         </div>
