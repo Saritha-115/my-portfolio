@@ -12,7 +12,7 @@ export default function About() {
         <div className="container mx-auto py-16 px-4">
           <h1 className="text-4xl font-bold mb-8 text-center">About Me</h1>
           <p className="text-lg text-center mb-4">
-            Hi, I'm [Your Name], a passionate developer with experience in
+            Hi, I'm Saritha, a passionate developer with experience in
             building modern web applications.
           </p>
           <p className="text-lg text-center">
