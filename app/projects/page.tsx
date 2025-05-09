@@ -1,6 +1,6 @@
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
-import Card from "../../components/ui/Card"; // Assuming you have a Card component
+"use client"; // Mark this file as a client component
+
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/Card";
 
 export default function Projects() {
   const projects = [
@@ -22,29 +22,25 @@ export default function Projects() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Header */}
-      <Header />
-
-      {/* Main Content */}
-      <main className="flex-grow bg-gray-100 text-gray-800">
-        <div className="container mx-auto py-16 px-4">
-          <h1 className="text-4xl font-bold mb-8 text-center">My Projects</h1>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                title={project.title}
-                description={project.description}
-                link={project.link}
-              />
-            ))}
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <Footer />
+    <div className="container mx-auto py-16">
+      <h1 className="text-4xl font-bold mb-8 text-center sm:text-5xl lg:text-6xl">
+        My Projects
+      </h1>
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <Card key={index} className="bg-gray-800 text-white">
+            <CardHeader>
+              <CardTitle>{project.title}</CardTitle>
+              <CardDescription>{project.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <a href={project.link} className="text-blue-400 hover:underline">
+                View Details
+              </a>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }
