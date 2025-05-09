@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Navigation from "./Navigation";
 import { Sun, Moon } from "lucide-react"; // Icons for light and dark mode
+import { Button } from "../ui/button";
 
 export default function Header() {
   const [isLightMode, setIsLightMode] = useState(false);
@@ -33,17 +34,17 @@ export default function Header() {
           <Navigation />
 
           {/* Light Mode Toggle */}
-          <button
+          <Button
             onClick={() => setIsLightMode(!isLightMode)}
-            className="p-2 rounded-md bg-gray-200 dark:bg-gray-700"
+            className="circle"
             aria-label="Toggle Light Mode"
           >
             {isLightMode ? (
-              <Moon className="w-5 h-5 text-gray-800" />
+              <Moon className="w-6 h-6 text-gray-800" />
             ) : (
-              <Sun className="w-5 h-5 text-yellow-500" />
+              <Sun className="w-6 h-6 text-yellow-500" />
             )}
-          </button>
+          </Button>
         </div>
       </div>
     </header>

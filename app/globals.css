@@ -5,35 +5,47 @@
 :root {
   --color-background: #121212; /* Dark background */
   --color-foreground: #e4e4e4; /* Light text */
-  --color-primary: #2CB67D; /* Primary color matching accent */
-  --color-primary-hover: #249E6C; /* Slightly darker accent for hover */
+  --color-primary: #2CB67D; /* Darker primary color */
+  --color-primary-hover: #2CB67D; /* Lighter hover color */
   --color-secondary: #2d3748; /* Darker gray for cards */
   --color-muted: #A1A1AA; /* Muted text color */
   --color-accent: #2CB67D; /* Accent color */
   --color-text: #E4E4E4; /* Text color */
-  --color-surface: #1A1A1A; /* Surface color */
-  --color-border: #2A2A2A; /* Border color */
-  --color-error: #EF4444; /* Error color */
-  --font-sans: 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+  --color-surface: #1A1A1A; /* Dark surface color for cards and containers */
+  --color-border: #2A2A2A; /* Dark border color for elements */
+  --color-error: #EF4444; /* Bright red for error messages */
+  --color-btn-text: #2CB67D; /* Button text in dark mode */
+  --hover-shadow: 0 4px 15px rgba(44, 182, 125, 0.5); /* Green shadow for hover effects in dark mode */
+  --font-sans: 'Geist', sans-serif; /* Sans-serif font for general text */
+  --font-mono: 'Geist Mono', monospace; /* Monospace font for code or technical text */
 }
 
 /* Light mode */
 .light {
-  --color-background: #ffffff; /* Light background */
-  --color-foreground: #1a1a1a; /* Dark text */
-  --color-primary: #FF6F61; /* Primary color matching light accent */
-  --color-primary-hover: #E65A50; /* Slightly darker accent for hover */
-  --color-secondary: #f8f9fa; /* Light gray for cards */
-  --color-muted: #6c757d; /* Muted text color */
+  --color-background: #ffffff; /* White background for light mode */
+  --color-foreground: #1a1a1a; /* Black/dark text for light mode */
+  --color-primary: #FF6F61; /* Vibrant red for primary buttons and links */
+  --color-primary-hover: #E74C3C; /* Lighter red for hover effects */
+  --color-secondary: #f8f9fa; /* Light gray for cards and containers */
+  --color-muted: #6c757d; /* Muted gray for secondary text */
   --color-accent: #FF6F61; /* Vibrant red accent color */
-  --color-text: #212529; /* Text color */
-  --color-surface: #e9ecef; /* Surface color */
-  --color-border: #dee2e6; /* Border color */
-  --color-error: #dc3545; /* Error color */
+  --color-text: #212529; /* Dark gray for general text */
+  --color-surface: #e9ecef; /* Very light gray for surfaces */
+  --color-border: #dee2e6; /* Light gray for borders */
+  --color-error: #dc3545; /* Bright red for error messages */
+   --color-btn-text: #FF6F61; /* Button text in light mode */
+  --hover-shadow: 0 4px 15px rgba(231, 76, 60, 0.5); /* Red shadow for hover effects in light mode */
 }
 
-/* Base styles */
+/* Button hover effect */
+button:hover {
+  background-color: var(--color-primary-hover); /* Hover background color */
+  color: var(--color-text); /* Hover text color */
+  box-shadow: var(--hover-shadow); /* Hover shadow effect */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
 @layer base {
   * {
     margin: 0;
@@ -43,10 +55,43 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono); /* Changed to monospace font */
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
   }
+}
+
+/* Global button styles */
+button {
+  background-color: var(--color-primary); /* Darker primary color */
+  color: var(--color-foreground);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-family: var(--font-mono); /* Changed to monospace font */
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Custom circle button class */
+.circle {
+  width: 3rem; /* Equal width and height to make it square */
+  height: 3rem;
+  padding: 0; /* Remove padding to avoid distortion */
+  border-radius: 50%; /* Fully rounded to make it a circle */
+  display: flex; /* Center content */
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary); /* Default background color */
+  color: var(--color-foreground); /* Default text color */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.circle:hover {
+  background-color: var(--color-primary-hover); /* Hover background color */
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
 /* Utility classes */
@@ -54,6 +99,7 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
+  font-family: var(--font-mono); /* Changed to monospace font */
 }
 
 @media (min-width: 640px) {
@@ -80,23 +126,47 @@
   }
 }
 
+@keyframes draw-reverse {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+  50% {
+    stroke-dashoffset: 30;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+.stroke-animation circle {
+  animation: draw-reverse 4s ease-in-out infinite;
+}
+
+.border-accent {
+  border-color: var(--color-accent);
+}
+
 .text-center {
   text-align: center;
 }
 
 .btn {
-  background-color: var(--color-primary);
-  color: var(--color-foreground);
+  background-color: var(--color-background);
+  color: var(--color-btn-text); /* Updated to use the correct text color */
   padding: 0.75rem 1.5rem;
   border-radius: 0.375rem;
   text-decoration: none;
   display: inline-block;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid var(--color-accent);
 }
 
 .btn:hover {
-  background-color: #2b6cb0; /* Darker blue */
+  box-shadow: var(--hover-shadow); /* Use hover shadow based on mode */
 }
 
 .card {
