@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+#csstext
+/public/css.txt
+
 # production
 /build
 
