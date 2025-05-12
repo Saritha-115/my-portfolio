@@ -22,9 +22,9 @@ export default function Home() {
       {/* Right Side: Image */}
       <div className="relative w-150 h-150 flex justify-center items-center">
         <img
-          src="/Saritha1.png"
+          src="/Saritha.png"
           alt="Your Name"
-          className="w-142.5 h-142.5 rounded-full shadow-lg object-cover object-center z-10"
+          className="w-141 h-141 rounded-full shadow-lg object-cover object-top z-10"
         />
         <svg
           className="absolute w-full h-full z-0 stroke-animation"
