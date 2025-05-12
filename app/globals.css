@@ -3,21 +3,21 @@
 
 /* Default mode (Dark mode) */
 :root {
-  --color-background: #121212; /* Dark background */
-  --color-foreground: #e4e4e4; /* Light text */
-  --color-primary: #2CB67D; /* Darker primary color */
-  --color-primary-hover: #2CB67D; /* Lighter hover color */
-  --color-secondary: #2d3748; /* Darker gray for cards */
-  --color-muted: #A1A1AA; /* Muted text color */
-  --color-accent: #2CB67D; /* Accent color */
-  --color-text: #E4E4E4; /* Text color */
-  --color-surface: #1A1A1A; /* Dark surface color for cards and containers */
-  --color-border: #2A2A2A; /* Dark border color for elements */
-  --color-error: #EF4444; /* Bright red for error messages */
-  --color-btn-text: #2CB67D; /* Button text in dark mode */
-  --hover-shadow: 0 4px 15px rgba(44, 182, 125, 0.5); /* Green shadow for hover effects in dark mode */
-  --font-sans: 'Geist', sans-serif; /* Sans-serif font for general text */
-  --font-mono: 'Geist Mono', monospace; /* Monospace font for code or technical text */
+  --color-background: #121212;
+  --color-foreground: #e4e4e4;
+  --color-primary: #2cb67d;
+  --color-primary-hover: #2cb67d;
+  --color-secondary: #2d3748;
+  --color-muted: #a1a1aa;
+  --color-accent: #2cb67d;
+  --color-text: #e4e4e4;
+  --color-surface: #1a1a1a;
+  --color-border: #2a2a2a;
+  --color-error: #ef4444;
+  --color-btn-text: #2cb67d;
+  --hover-shadow: 0 4px 15px rgba(44, 182, 125, 0.5);
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
 }
 
 /* Light mode */
@@ -126,6 +126,7 @@ button {
   }
 }
 
+/* Animation */
 @keyframes draw-reverse {
   0% {
     stroke-dashoffset: 0;

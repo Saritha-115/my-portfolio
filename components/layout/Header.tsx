@@ -11,14 +11,9 @@ export default function Header() {
 
   // Sync light mode state with the <html> element
   useEffect(() => {
-    const root = window.document.documentElement;
-    if (isLightMode) {
-      root.classList.add("light");
-      console.log("Light mode enabled");
-    } else {
-      root.classList.remove("light");
-      console.log("Dark mode enabled");
-    }
+    const root = document.documentElement;
+    root.classList.toggle("light", isLightMode); // Add/remove 'light' class based on isLightMode state
+    console.log(isLightMode ? "Light mode enabled" : "Dark mode enabled");
   }, [isLightMode]);
 
   return (
@@ -29,13 +24,14 @@ export default function Header() {
             Saritha<span className="text-accent">.</span>
           </Link>
         </h1>
+
         <div className="flex items-center space-x-4">
           {/* Navigation */}
           <Navigation />
 
           {/* Light Mode Toggle */}
           <Button
-            onClick={() => setIsLightMode(!isLightMode)}
+            onClick={() => setIsLightMode((prevMode) => !prevMode)}
             className="circle"
             aria-label="Toggle Light Mode"
           >

@@ -1,4 +1,5 @@
 "use client"; // Mark this file as a client component
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
           alt="Your Name"
           className="w-141 h-141 rounded-full shadow-lg object-cover object-top z-10"
         />
-        <svg
+        <motion.svg
           className="absolute w-full h-full z-0 stroke-animation"
           viewBox="0 0 100 100"
         >
@@ -46,7 +47,7 @@ export default function Home() {
             strokeDasharray="30 10 5 15"
             strokeLinecap="round"
           />
-        </svg>
+        </motion.svg>
       </div>
     </div>
   );
