@@ -59,21 +59,23 @@ export default function Contact() {
     >
       <motion.h1
         variants={textVariant(0.2)}
-        className="text-4xl font-bold mb-8 text-center sm:text-5xl lg:text-6xl text-white"
+        className="text-4xl font-bold mb-8 text-center sm:text-5xl lg:text-6xl"
+        style={{ color: "var(--color-foreground)" }}
       >
         Contact Me
       </motion.h1>
 
       <motion.p
         variants={textVariant(0.3)}
-        className="text-lg text-center mb-8 sm:text-xl lg:text-2xl text-gray-300"
+        className="text-lg text-center mb-8 sm:text-xl lg:text-2xl"
+        style={{ color: "var(--color-text)" }}
       >
         Feel free to reach out to me using the form below.
       </motion.p>
 
       <motion.div
         variants={fadeIn("up", 0.4)}
-        className="max-w-lg mx-auto bg-gray-800 p-8 shadow-md rounded-lg"
+        className="card max-w-lg mx-auto"
       >
         {isSubmitted ? (
           <motion.div
@@ -85,10 +87,12 @@ export default function Contact() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="w-16 h-16 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center"
+              className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
+              style={{ backgroundColor: "var(--color-accent)" }}
             >
               <svg
-                className="w-8 h-8 text-white"
+                className="w-8 h-8"
+                style={{ color: "var(--color-secondary)" }}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -102,14 +106,23 @@ export default function Contact() {
                 ></path>
               </svg>
             </motion.div>
-            <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
-            <p className="text-gray-300">
+            <h3
+              className="text-xl font-bold mb-2"
+              style={{ color: "var(--color-foreground)" }}
+            >
+              Message Sent!
+            </h3>
+            <p style={{ color: "var(--color-muted)" }}>
               Thank you for reaching out. I'll get back to you as soon as
               possible.
             </p>
             <Button
               onClick={() => setIsSubmitted(false)}
-              className="mt-6 bg-accent hover:bg-accent-dark"
+              className="mt-6"
+              style={{
+                backgroundColor: "var(--color-accent)",
+                color: "var(--color-secondary)",
+              }}
             >
               Send Another Message
             </Button>
@@ -125,7 +138,7 @@ export default function Contact() {
                 value={formState.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="mt-1"
+                className="mt-1 custom-placeholder"
                 required
               />
             </div>
@@ -138,7 +151,7 @@ export default function Contact() {
                 value={formState.email}
                 onChange={handleChange}
                 placeholder="Your Email"
-                className="mt-1"
+                className="mt-1 custom-placeholder"
                 required
               />
             </div>
@@ -151,14 +164,18 @@ export default function Contact() {
                 onChange={handleChange}
                 rows={4}
                 placeholder="Your Message"
-                className="mt-1"
+                className="mt-1 custom-placeholder"
                 required
               />
             </div>
             <Button
               type="submit"
-              className="w-full bg-accent hover:bg-accent-dark"
+              className="w-full"
               disabled={isSubmitting}
+              style={{
+                backgroundColor: "var(--color-accent)",
+                color: "var(--color-text)",
+              }}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">

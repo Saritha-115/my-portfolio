@@ -154,6 +154,11 @@ button {
   text-align: center;
 }
 
+.custom-placeholder::placeholder {
+  color: var(--color-muted); /* or any specific color like #888 */
+  opacity: 1; /* ensure it’s fully visible */
+}
+
 .btn {
   background-color: var(--color-background);
   color: var(--color-btn-text); /* Updated to use the correct text color */
@@ -182,6 +187,14 @@ button {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tag {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
 }
 
 /* Accent styling utility */

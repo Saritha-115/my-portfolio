@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  fadeIn, 
-  staggerContainer, 
-  slideIn, 
-  textVariant 
+import {
+  fadeIn,
+  staggerContainer,
+  slideIn,
+  textVariant,
 } from "@/lib/animation";
 
 export default function Home() {
@@ -28,13 +28,13 @@ export default function Home() {
     >
       {/* Left Side: Introduction */}
       <div className="flex-1">
-        <motion.h1 
+        <motion.h1
           variants={textVariant(0.3)}
           className="text-4xl font-bold mb-4 sm:text-5xl lg:text-6xl"
         >
           Welcome to My Portfolio
         </motion.h1>
-        <motion.p 
+        <motion.p
           variants={textVariant(0.5)}
           className="text-lg mb-8 sm:text-xl lg:text-2xl"
         >
@@ -54,26 +54,20 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Right Side: Image */}
+      {/* Right Side: Circular Image with Rotating Ring */}
       <motion.div
         variants={slideIn("right", "tween", 0.4, 1)}
-        className="relative w-full sm:w-3/4 md:w-1/2 lg:w-2/5 aspect-square flex justify-center items-center"
+        className="relative flex justify-center items-center"
       >
-        <img
-          src="/Saritha.png"
-          alt="Saritha"
-          className="w-full h-full object-cover object-top rounded-full shadow-lg z-10"
-        />
+        {/* Rotating SVG Ring */}
         <motion.svg
-          animate={{ 
-            rotate: 360,
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
           }}
-          transition={{ 
-            duration: 20, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute w-full h-full z-0 stroke-animation"
+          className="absolute w-150 h-150 z-0"
           viewBox="0 0 100 100"
         >
           <defs>
@@ -93,6 +87,13 @@ export default function Home() {
             strokeLinecap="round"
           />
         </motion.svg>
+
+        {/* Circular Image */}
+        <img
+          src="/Saritha1.png"
+          alt="Saritha"
+          className="w-142.5 h-142.5 rounded-full object-cover object-top z-10"
+        />
       </motion.div>
     </motion.div>
   );
