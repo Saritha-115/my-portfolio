@@ -11,6 +11,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Navigation() {
   return (
     <nav className="relative">
       {/* Drawer for Small Screens */}
-      <div className="md:hidden">
+      <motion.div className="md:hidden">
         <Button variant="ghost" onClick={() => setIsOpen(true)}>
           <Menu className="w-6 h-6" />
         </Button>
@@ -75,10 +76,10 @@ export default function Navigation() {
             </ul>
           </DrawerContent>
         </Drawer>
-      </div>
+      </motion.div>
 
       {/* Horizontal Navigation for Larger Screens */}
-      <div className="hidden md:flex md:items-center md:space-x-4">
+      <motion.div className="hidden md:flex md:items-center md:space-x-4">
         {links.map((link) => (
           <Link
             key={link.href}
@@ -91,7 +92,7 @@ export default function Navigation() {
         <Button variant="default" className="bg-accent hover:bg-accent-dark">
           Hire Me
         </Button>
-      </div>
+      </motion.div>
     </nav>
   );
 }
