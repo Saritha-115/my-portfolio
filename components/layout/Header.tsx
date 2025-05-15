@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navigation from "./Navigation";
 import { Sun, Moon } from "lucide-react"; // Icons for light and dark mode
 import { Button } from "../ui/button";
+import { motion } from "framer-motion"; // For animations
 
 export default function Header() {
   const [isLightMode, setIsLightMode] = useState(false);
@@ -25,7 +26,7 @@ export default function Header() {
           </Link>
         </h1>
 
-        <div className="flex items-center space-x-4">
+        <motion.div className="flex items-center space-x-4">
           {/* Navigation */}
           <Navigation />
 
@@ -41,7 +42,7 @@ export default function Header() {
               <Sun className="w-6 h-6 text-yellow-500" />
             )}
           </Button>
-        </div>
+        </motion.div>
       </div>
     </header>
   );
