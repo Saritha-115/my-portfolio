@@ -24,13 +24,13 @@ export default function Home() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
-      className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col lg:flex-row items-center lg:items-center justify-between text-left lg:text-left space-y-8 lg:space-y-0 lg:space-x-16"
+      className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between text-left lg:text-left space-y-8 lg:space-y-0 lg:space-x-16"
     >
       {/* Left Side: Introduction */}
       <div className="flex-1">
         <motion.h1
           variants={textVariant(0.3)}
-          className="text-4xl font-bold mb-4 sm:text-5xl lg:text-6xl"
+          className="text-4xl font-bold mb-4 sm:text-5xl lg:text-6xl "
         >
           Welcome to My Portfolio
         </motion.h1>
@@ -57,7 +57,7 @@ export default function Home() {
       {/* Right Side: Circular Image with Rotating Ring */}
       <motion.div
         variants={slideIn("right", "tween", 0.4, 1)}
-        className="relative flex justify-center items-center"
+        className="relative flex justify-center items-center mb-8 lg:mb-0"
       >
         {/* Rotating SVG Ring */}
         <motion.svg
@@ -67,7 +67,7 @@ export default function Home() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute w-150 h-150 z-0"
+          className="absolute w-100 h-100 md:w-125 md:h-125 lg:w-150 lg:h-150 z-0"
           viewBox="0 0 100 100"
         >
           <defs>
@@ -92,7 +92,7 @@ export default function Home() {
         <img
           src="/Saritha1.png"
           alt="Saritha"
-          className="w-142.5 h-142.5 rounded-full object-cover object-top z-10"
+          className="w-95 h-95 md:w-118.75 md:h-118.75 lg:w-142.5 lg:h-142.5 rounded-full object-cover object-top z-10"
         />
       </motion.div>
     </motion.div>
