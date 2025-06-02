@@ -1,4 +1,4 @@
-"use client"; // Mark this file as a client component
+"use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -68,52 +68,55 @@ export default function Projects() {
             key={index}
             variants={fadeIn("up", 0.2 * index)}
             whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            className="card"
           >
-            <Card className="bg-gray-800 text-white h-full">
-              <div className="w-full h-48 overflow-hidden rounded-t-xl">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-1 bg-gray-700 rounded-full text-xs"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href={project.link}
-                  className="text-accent hover:underline mt-2 inline-flex items-center"
-                >
-                  View Details
-                  <svg
-                    className="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+            <div className="w-full h-48 overflow-hidden rounded-t-xl">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <CardHeader>
+              <CardTitle>{project.title}</CardTitle>
+              <CardDescription>{project.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-4">
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2 py-1 rounded-full text-xs"
+                    style={{
+                      backgroundColor: "var(--color-surface)",
+                      color: "var(--color-muted)",
+                    }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    ></path>
-                  </svg>
-                </a>
-              </CardContent>
-            </Card>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.link}
+                className="text-accent hover:underline mt-2 inline-flex items-center"
+              >
+                View Details
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
+            </CardContent>
           </motion.div>
         ))}
       </div>
